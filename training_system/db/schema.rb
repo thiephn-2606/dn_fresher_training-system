@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_24_033525) do
+ActiveRecord::Schema.define(version: 2021_07_24_045625) do
 
   create_table "course_subjects", charset: "utf8mb4", force: :cascade do |t|
-    t.integer "status", default: 0
     t.date "deadline"
+    t.integer "status", default: 0
     t.bigint "course_id", null: false
     t.bigint "subject_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 2021_07_24_033525) do
     t.string "address"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "password_digest"
   end
 
   add_foreign_key "course_subjects", "courses"
