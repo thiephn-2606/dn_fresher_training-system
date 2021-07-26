@@ -1,5 +1,6 @@
 class Trainer::CoursesController < Trainer::BaseController
   before_action :load_course, only: :show
+  before_action :params_user_course, only: :create
 
   def index
     @courses = Course.created_desc.page(params[:page])
@@ -14,11 +15,14 @@ class Trainer::CoursesController < Trainer::BaseController
 
   def new
     @course = Course.new
+    @course.user_courses.build
   end
 
   def create
-    @course = Course.new course_params
     if @course.save
+      @user_id.each do |user_course|
+        @course.user_courses.build(user_id: @user_id[@startcount]).save
+      end
       flash[:success] = t "courses.create.success"
       redirect_to trainer_courses_path
     else
@@ -30,7 +34,8 @@ class Trainer::CoursesController < Trainer::BaseController
 
   def course_params
     params.require(:course).permit(
-      :name, :description, :status, :start_date, :end_date
+      :name, :description, :status, :start_date, :end_date,
+      user_courses_attributes: [user_id: []]
     )
   end
 
@@ -55,5 +60,15 @@ class Trainer::CoursesController < Trainer::BaseController
   def load_subjects course
     @subjects = course.subjects.page(params[:page])
                       .per(Settings.courses.per_page)
+  end
+
+  def params_user_course
+    @course = Course.new course_params
+    @startcount = 1
+    @user_id = params[:course][:user_courses_attributes]["0"][:user_id]
+    @course.user_courses.each do |m|
+      m.user_id = @user_id[@startcount]
+      @startcount += 1
+    end
   end
 end
