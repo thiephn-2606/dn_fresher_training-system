@@ -6,14 +6,19 @@
   <file name='app/controllers/sessions_controller.rb'/>
   <file name='app/controllers/trainee/base_controller.rb'/>
   <file name='app/controllers/trainer/base_controller.rb'/>
-  <file name='app/controllers/trainer/courses_controller.rb'/>
+  <file name='app/controllers/trainer/courses_controller.rb'>
+    <error line='28' column='24' severity='warning' message='Lint/UnusedBlockArgument: Unused block argument - `user_course`. You can omit the argument if you don&apos;t care about it.' source='com.puppycrawl.tools.checkstyle.Lint/UnusedBlockArgument'/>
+    <error line='32' column='27' severity='warning' message='Lint/UnusedBlockArgument: Unused block argument - `sb`. You can omit the argument if you don&apos;t care about it.' source='com.puppycrawl.tools.checkstyle.Lint/UnusedBlockArgument'/>
+  </file>
   <file name='app/helpers/application_helper.rb'/>
   <file name='app/helpers/courses_helper.rb'/>
   <file name='app/helpers/sessions_helper.rb'/>
   <file name='app/jobs/application_job.rb'/>
   <file name='app/mailers/application_mailer.rb'/>
   <file name='app/models/application_record.rb'/>
-  <file name='app/models/course.rb'/>
+  <file name='app/models/course.rb'>
+    <error line='9' column='0' severity='info' message='Layout/EmptyLines: Extra blank line detected.' source='com.puppycrawl.tools.checkstyle.Layout/EmptyLines'/>
+  </file>
   <file name='app/models/course_subject.rb'/>
   <file name='app/models/subject.rb'/>
   <file name='app/models/task.rb'/>
