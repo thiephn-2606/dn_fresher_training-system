@@ -15,10 +15,6 @@
   </head>
 
   <body>
-    <% flash.each do |message_type, message| %>
-      <div class="alert alert-<%= message_type %>"><%= message %></div>
-    <% end %>
-    <%= yield %>
     <%= render "layouts/sidebar" %>
     <div class="main-content" id="panel">
       <%= render "layouts/header" %>
