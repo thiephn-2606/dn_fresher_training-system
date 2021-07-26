@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
 
   def create
     if @user.authenticate(params[:session][:password])
-      flash[:success] = t ".sessions.success"
+      flash[:success] = t "session.success"
       log_in @user
       return redirect_to trainer_courses_path if current_user.trainer?
 
