@@ -9,9 +9,8 @@ jobs:
   stage: build
   image: sunci/ruby:2.7.0
   script:
-  - cp database-ci.yml config/database.yml
+  - cp database-ci.yml training_system/config/database.yml
   - bundle _2.1.2_ install --path vendor/bundle
-
   cache:
   - key: vendor_$CI_BRANCH
     paths:
@@ -21,7 +20,7 @@ jobs:
   stage: test
   image: sunci/ruby:2.7.0
   services:
-  - image: mysql:5.7.34
+  - image: mysql:5.7.22
     name: mysql_test
     environment:
       MYSQL_DATABASE: db_test
@@ -32,12 +31,4 @@ jobs:
   - bundle _2.1.2_ install --path vendor/bundle
   script:
   - RAILS_ENV=test bundle exec rails db:drop db:create db:migrate
-  # - bundle _2.1.2_ exec rspec 
-
-- name: test:rubocop
-  stage: test
-  image: sunci/ruby:2.7.0
-  before_script:
-  - bundle _2.1.2_ install --path vendor/bundle
-  script:
-  - bundle exec rubocop --require rubocop/formatter/checkstyle_formatter --format RuboCop::Formatter::CheckstyleFormatter --no-color app/ lib/
+  # - bundle _2.1.2_ exec rspec
