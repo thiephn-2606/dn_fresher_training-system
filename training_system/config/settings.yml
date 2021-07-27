@@ -1,3 +1,5 @@
 email_maxlen: 255
 name_maxlen: 50
 pass_minlen: 6
+courses:
+  per_page: 15

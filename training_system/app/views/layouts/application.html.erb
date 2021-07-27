@@ -19,13 +19,5 @@
       <div class="alert alert-<%= message_type %>"><%= message %></div>
     <% end %>
     <%= yield %>
-    <%= render "layouts/sidebar" %>
-    <div class="main-content" id="panel">
-      <%= render "layouts/header" %>
-      <div class="container-fluid mt--6">
-        <%= yield %>
-      <%= render "layouts/footer" %>
-      </div>
-    </div>
   </body>
 </html>
