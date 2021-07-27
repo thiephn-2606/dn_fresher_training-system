@@ -4,7 +4,11 @@
   <file name='app/channels/application_cable/connection.rb'/>
   <file name='app/controllers/application_controller.rb'/>
   <file name='app/controllers/sessions_controller.rb'/>
+  <file name='app/controllers/trainee/base_controller.rb'/>
+  <file name='app/controllers/trainer/base_controller.rb'/>
+  <file name='app/controllers/trainer/courses_controller.rb'/>
   <file name='app/helpers/application_helper.rb'/>
+  <file name='app/helpers/courses_helper.rb'/>
   <file name='app/helpers/sessions_helper.rb'/>
   <file name='app/jobs/application_job.rb'/>
   <file name='app/mailers/application_mailer.rb'/>

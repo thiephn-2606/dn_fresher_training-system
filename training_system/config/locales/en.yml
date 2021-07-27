@@ -7,3 +7,18 @@ en:
     account_invalid: "Account invalid"
     button_login: "Login"
     button_logout: "Logout"
+  layouts:
+    header:
+      framgia: "TRAINING SYSTEM"
+      btn: "new"
+    footer:
+      version: "Version: 1.0"
+      strong: "Copyright by Framgia, 2021."
+      reserved: "All rights reserved."
+      des: "TMS for supervisors"
+    sidebar:
+      my_courses: "My courses"
+      my_subject: "My_subject"
+      my_task: "My_task"
+      profile: "Profile"
+      logout : "Logout"
