@@ -1,5 +1,9 @@
 en:
-  hello: "Hello world"
+  activerecord:
+    models: 
+      course:
+        end_date: "End Date"
+        status: "Status"
   session:
     title_login: "Log In" 
     header_login: "Log In"
@@ -49,6 +53,9 @@ en:
         header_list_subject: "List Subject"
         duration: "Duration"
         email: "Email"
+      edit:
+        save_edit: "Save changes"
+        header_edit: "Edit Course"
   controllers:
     course_controller:
       let_login: "You must login"
@@ -70,3 +77,6 @@ en:
     form:
       back: "Back"
       submit: "Submit"
+    update: 
+      success: "Update Successful"
+      failed: "Update Failed"
