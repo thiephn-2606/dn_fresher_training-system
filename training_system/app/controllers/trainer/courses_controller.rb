@@ -1,5 +1,6 @@
 class Trainer::CoursesController < Trainer::BaseController
   before_action :load_course, only: [:show, :edit, :update]
+  before_action :trainee_not_course, only: :edit
 
   def index
     @courses = Course.created_desc.page(params[:page])
@@ -12,7 +13,9 @@ class Trainer::CoursesController < Trainer::BaseController
     load_subjects @course
   end
 
-  def edit; end
+  def edit
+    load_trainees @course
+  end
 
   def new
     @course = Course.new
@@ -48,7 +51,7 @@ class Trainer::CoursesController < Trainer::BaseController
         flash[:success] = t "courses.update.success"
         redirect_to trainer_courses_path
       end
-    rescue 
+    rescue
       flash[:danger] = t "courses.update.failed"
       redirect_to trainer_courses_path
     end
@@ -84,5 +87,12 @@ class Trainer::CoursesController < Trainer::BaseController
   def load_subjects course
     @subjects = course.subjects.page(params[:page])
                       .per(Settings.courses.per_page)
+  end
+
+  def trainee_not_course
+    trainees = @course.users.trainee.ids
+    @trainees_not_course = User.trainee.user_not_course(trainees)
+                               .page(params[:page])
+                               .per(Settings.courses.per_page)
   end
 end

@@ -4,7 +4,7 @@
       <div class="card card-upgrade">
         <div class="card-header text-center border-bottom-0">
           <h4 class="card-title"><%= t("views.course.show.header") %></h4>
-          <%= link_to t("views.course.show.edit_course"), edit_trainer_course_path(@course.id), class: "btn btn-round btn-primary" %>
+          <%= link_to t("views.course.show.edit_course"), edit_trainer_course_path(@course.id), method: :get, class: "btn btn-round btn-primary" %>
         </div>
         <div class="card-body">
           <div class="table-responsive table-upgrade">

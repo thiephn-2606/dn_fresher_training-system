@@ -59,10 +59,25 @@ en:
       edit:
         save_edit: "Save changes"
         header_edit: "Edit Course"
+      assign:
+        header_list_assign_trainee: "List Assign Trainee"
+        name: "Name Trainee"
+        email: "Email"
+        btn_assign: "Assign"
+        btn_remove: "Remove"
+        header_list_remove_trainee: "List Remove Trainee"
+        confim: "Are you sure?"
   controllers:
     course_controller:
       let_login: "You must login"
       error_show: "Course does not exist"
+      assign_trainee:
+        suc: "Assign Success"
+        f: "Assign Failed"
+        no_one: "Trainee Assign can't be blank"
+      remove_trainee:
+        suc: "Remove Success"
+        fail: "Remove Fail"
   date:
     formats:
       default: "%d-%m-%Y"
