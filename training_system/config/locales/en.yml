@@ -7,6 +7,7 @@ en:
     account_invalid: "Account invalid"
     button_login: "Login"
     button_logout: "Logout"
+    success: "Login successful"
   layouts:
     header:
       framgia: "TRAINING SYSTEM"
@@ -22,3 +23,18 @@ en:
       my_task: "My_task"
       profile: "Profile"
       logout : "Logout"
+  views:
+    course:
+      index:
+        header: "List Course"
+        detail_course: "Details Course"
+        name: "Name Course"
+        status: "Status"
+        start_date: "Start Date"
+        h_details: "Details"
+  controllers:
+    course_controller:
+      let_login: "You must login"
+  date:
+    formats:
+      default: "%d-%m-%Y"

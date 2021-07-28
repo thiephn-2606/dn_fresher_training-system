@@ -14,8 +14,4 @@
       <%= f.submit t("session.button_login"), class: "btn btn-primary" %>
     <% end %>
   </div>
-
-  <% if logged_in? %>
-    <li><%= link_to t("session.button_logout"), logout_path, method: :delete %></li>
-  <% end %>
 </div>
