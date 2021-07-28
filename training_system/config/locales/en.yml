@@ -38,3 +38,17 @@ en:
   date:
     formats:
       default: "%d-%m-%Y"
+  shared:
+    error_messages:
+      content: "The form contains %{error_messages}"
+      messages: "error"
+  courses:
+    mess_start_date_error: "Please select a start date greater than the current date"
+    mess_start_date_eq_end_date_error: "cannot be before the start date"
+    create:
+      success: "courses created success "
+    new:
+      title: "Create User"
+    form:
+      back: "Back"
+      submit: "Submit"
