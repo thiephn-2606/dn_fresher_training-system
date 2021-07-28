@@ -1,0 +1,49 @@
+<div class="container-fluid mt--6">
+  <div class="row mt--5">
+    <div class="col-md-10 ml-auto mr-auto">
+      <div class="card card-upgrade">
+        <div class="card-header text-center border-bottom-0">
+          <h4 class="card-title"><%= t("views.course.show.header") %></h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive table-upgrade">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th class="text-center"><%= t("views.course.show.content") %></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><%= t("views.course.show.name") %></td>
+                  <td class="text-center"><%= @course.name %></td>
+                </tr>
+                <tr>
+                  <td><%= t("views.course.show.description") %></td>
+                  <td class="text-center"><%= @course.description %></td>
+                </tr>
+                <tr>
+                  <td><%= t("views.course.show.start_date") %></td>
+                  <td class="text-center"><%= l(@course.start_date) %></td>
+                </tr>
+                <tr>
+                  <td><%= t("views.course.show.end_date") %></td>
+                  <td class="text-center"><%= l(@course.end_date) %></td>
+                </tr>
+                <tr>
+                  <td><%= t("views.course.show.status") %></td>
+                  <td class="text-center"><%= @course.status %></td>
+                </tr>
+                  <td class="text-center"></td>
+                  <td class="text-center">
+                    <%= link_to t("views.course.show.edit_course"), edit_trainer_course_path(@course.id), class: "btn btn-round btn-primary" %>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -32,9 +32,19 @@ en:
         status: "Status"
         start_date: "Start Date"
         h_details: "Details"
+      show:
+        header: "Details of Course"
+        content: "Content"
+        name: "Name Course"
+        description: "Description Course"
+        start_date: "Start Date"
+        end_date: "End Date"
+        status: "Status"
+        edit_course: "Edit Course"
   controllers:
     course_controller:
       let_login: "You must login"
+      error_show: "Course does not exist"
   date:
     formats:
       default: "%d-%m-%Y"
