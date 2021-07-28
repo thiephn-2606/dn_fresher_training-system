@@ -6,7 +6,11 @@ class Trainer::CoursesController < Trainer::BaseController
                      .per(Settings.courses.per_page)
   end
 
-  def show; end
+  def show
+    load_trainers @course
+    load_trainees @course
+    load_subjects @course
+  end
 
   def new
     @course = Course.new
@@ -36,5 +40,20 @@ class Trainer::CoursesController < Trainer::BaseController
 
     flash[:danger] = t("controllers.course_controller.error_show")
     redirect_to trainer_courses_path
+  end
+
+  def load_trainers course
+    @trainers = course.users.trainer.page(params[:page])
+                      .per(Settings.courses.per_page)
+  end
+
+  def load_trainees course
+    @trainees = course.users.trainee.page(params[:page])
+                      .per(Settings.courses.per_page)
+  end
+
+  def load_subjects course
+    @subjects = course.subjects.page(params[:page])
+                      .per(Settings.courses.per_page)
   end
 end

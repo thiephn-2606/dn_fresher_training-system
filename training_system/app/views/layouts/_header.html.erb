@@ -24,13 +24,6 @@
               <div class="media-body  ml-2  d-none d-lg-block">
                 <span class="mb-0 text-sm  font-weight-bold">John Snow</span>
               </div>
-              <div class="media-body  ml-2  d-none d-lg-block">
-                <span class="mb-0 text-sm  font-weight-bold">
-                  <% if logged_in? %>
-                    <%= link_to t("session.button_logout"), logout_path, method: :delete, class: "mb-0 text-sm  font-weight-bold", style: "color: white;" %>
-                  <% end %>
-                </span>
-              </div>
             </div>
           </a>
         </li>
