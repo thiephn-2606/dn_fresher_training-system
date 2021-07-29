@@ -32,11 +32,15 @@
               <span class="nav-link-text"> <%= I18n.t("layouts.sidebar.profile")%></span>
             </a>
           </li>
-            <li class="nav-item">
-            <a class="nav-link" href="profile.html">
-              <i class="ni ni-single-02 text-yellow"></i>
-              <span class="nav-link-text"> <%= I18n.t("layouts.sidebar.logout")%></span>
-            </a>
+          <li class="nav-item">
+            <span class="nav-link">
+            <i class="ni ni-single-02 text-yellow"></i>
+              <span class="nav-link-text">
+                <% if logged_in? %>
+                  <%= link_to t("slayouts.sidebar.logout"), logout_path, method: :delete %>
+                <% end %>
+              </span>
+            </span>
           </li>
         </ul>
       </div>

@@ -41,6 +41,14 @@ en:
         end_date: "End Date"
         status: "Status"
         edit_course: "Edit Course"
+        name_trainee: "Name Trainee"
+        header_list_trainee: "List Trainee"
+        name_trainer: "Name Trainer"
+        header_list_trainer: "List Trainer"
+        name_subject: "Name Subject"
+        header_list_subject: "List Subject"
+        duration: "Duration"
+        email: "Email"
   controllers:
     course_controller:
       let_login: "You must login"

@@ -4,6 +4,7 @@
       <div class="card card-upgrade">
         <div class="card-header text-center border-bottom-0">
           <h4 class="card-title"><%= t("views.course.show.header") %></h4>
+          <%= link_to t("views.course.show.edit_course"), edit_trainer_course_path(@course.id), class: "btn btn-round btn-primary" %>
         </div>
         <div class="card-body">
           <div class="table-responsive table-upgrade">
@@ -25,23 +26,82 @@
                 </tr>
                 <tr>
                   <td><%= t("views.course.show.start_date") %></td>
-                  <td class="text-center"><%= l(@course.start_date) %></td>
+                  <td class="text-center"><%= @course.start_date %></td>
                 </tr>
                 <tr>
                   <td><%= t("views.course.show.end_date") %></td>
-                  <td class="text-center"><%= l(@course.end_date) %></td>
+                  <td class="text-center"><%= @course.end_date %></td>
                 </tr>
                 <tr>
                   <td><%= t("views.course.show.status") %></td>
                   <td class="text-center"><%= @course.status %></td>
                 </tr>
-                  <td class="text-center"></td>
-                  <td class="text-center">
-                    <%= link_to t("views.course.show.edit_course"), edit_trainer_course_path(@course.id), class: "btn btn-round btn-primary" %>
-                  </td>
-                </tr>
               </tbody>
             </table>
+            <hr class="my-4">
+          </div>
+        </div>
+      </div>
+      <div class="card bg-default shadow">
+        <div class="card-header bg-transparent border-0">
+          <h3 class="text-white mb-0"><%= t("views.course.show.header_list_trainee") %></h3>
+        </div>
+        <div class="table-responsive">
+          <table class="table align-items-center table-dark table-flush">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col" class="sort" data-sort="name"><%= t("views.course.show.name_trainee") %></th>
+                <th scope="col" class="sort" data-sort="budget"><%= t("views.course.show.email") %></th>
+              </tr>
+            </thead>
+            <tbody class="list">
+              <%= render partial: "trainee_of_course", collection: @trainees, as: :trainee %>
+            </tbody>
+          </table>
+          <div class="digg_pagination">
+            <%= paginate @trainees %>
+          </div>
+        </div>
+      </div>
+      <div class="card bg-default shadow">
+        <div class="card-header bg-transparent border-0">
+          <h3 class="text-white mb-0"><%= t("views.course.show.header_list_trainer") %></h3>
+        </div>
+        <div class="table-responsive">
+          <table class="table align-items-center table-dark table-flush">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col" class="sort" data-sort="name"><%= t("views.course.show.name_trainer") %></th>
+                <th scope="col" class="sort" data-sort="budget"><%= t("views.course.show.email") %></th>
+              </tr>
+            </thead>
+            <tbody class="list">
+              <%= render partial: "trainer_of_course", collection: @trainers, as: :trainer %>
+            </tbody>
+          </table>
+          <div class="digg_pagination">
+            <%= paginate @trainers %>
+          </div>
+        </div>
+      </div>
+      <div class="card bg-default shadow">
+        <div class="card-header bg-transparent border-0">
+          <h3 class="text-white mb-0"><%= t("views.course.show.header_list_subject") %></h3>
+        </div>
+        <div class="table-responsive">
+          <table class="table align-items-center table-dark table-flush">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col" class="sort" data-sort="name"><%= t("views.course.show.name_subject") %></th>
+                <th scope="col" class="sort" data-sort="budget"><%= t("views.course.show.duration") %></th>
+              </tr>
+            </thead>
+            <tbody class="list">
+              <%= render partial: "subject_of_course", collection: @subjects, as: :subject %>
+            </tbody>
+          </table>
+          <div class="digg_pagination">
+            <%= paginate @subjects %>
           </div>
         </div>
       </div>
