@@ -1,6 +1,7 @@
 en:
   activerecord:
-    models: 
+    models:
+    attributes:
       course:
         end_date: "End Date"
         status: "Status"

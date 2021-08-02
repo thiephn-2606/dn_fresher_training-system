@@ -20,6 +20,7 @@ class Trainer::CoursesController < Trainer::BaseController
 
   def create
     @course = Course.new course_params
+
     if @course.save
       flash[:success] = t "courses.create.success"
       redirect_to trainer_courses_path
@@ -42,7 +43,8 @@ class Trainer::CoursesController < Trainer::BaseController
 
   def course_params
     params.require(:course).permit(
-      :name, :description, :status, :start_date, :end_date
+      :name, :description, :status, :start_date, :end_date,
+      subject_ids: [], user_ids: []
     )
   end
 
