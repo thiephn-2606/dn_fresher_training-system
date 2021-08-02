@@ -1,5 +1,5 @@
 class Trainer::CoursesController < Trainer::BaseController
-  before_action :load_course, only: :show
+  before_action :load_course, only: [:show, :edit, :update]
 
   def index
     @courses = Course.created_desc.page(params[:page])
@@ -12,6 +12,8 @@ class Trainer::CoursesController < Trainer::BaseController
     load_subjects @course
   end
 
+  def edit; end
+
   def new
     @course = Course.new
   end
@@ -23,6 +25,16 @@ class Trainer::CoursesController < Trainer::BaseController
       redirect_to trainer_courses_path
     else
       render :new
+    end
+  end
+
+  def update
+    if @course.update course_params
+      flash[:success] = t "courses.update.success"
+      redirect_to trainer_course_path
+    else
+      flash.now[:danger] = t "courses.update.failed"
+      render :edit
     end
   end
 
