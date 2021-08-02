@@ -18,6 +18,11 @@
     {include_blank: false, include_hidden: false},
     { multiple: true, class: "select form-control"} %>
 
+  <%= f.label :user %>
+  <%= f.collection_select :user_ids, user_select, :id, :name,
+    {include_blank: false, include_hidden: false},
+    { multiple: true, class: "select form-control"} %>
+
   <div class="col-lg-6 col-5 text-right btn-courses">
     <%= link_to I18n.t("courses.form.back"), trainer_courses_path, class: "btn btn-primary" %>
     <%= f.submit I18n.t("courses.form.submit"), class: "btn btn-success" %>
