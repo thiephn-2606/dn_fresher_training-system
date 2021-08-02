@@ -1,0 +1,38 @@
+<div class="container-fluid mt--6">
+  <div class="row">
+    <div class="col-xl-8 order-xl-1">
+      <div class="card">
+        <div class="card-header">
+          <div class="row align-items-center">
+            <div class="col-8">
+              <h3 class="mb-0"><%= t "views.course.edit.header_edit" %></h3>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <%= form_for [:trainer, @course], class: "form-group" do |f| %>
+
+            <%= f.label :name %>
+            <%= f.text_field :name, class: "form-control" %>
+
+            <%= f.label :description %>
+            <%= f.text_field :description, class: "form-control" %>
+
+            <%= f.label :start_date %>
+            <%= f.date_field :start_date, class: "form-control" %>
+
+            <%= f.label :end_date %>
+            <%= f.date_field :end_date, class: "form-control" %>
+
+            <%= f.label :status %>
+            <%= f.select :status, status_select, {}, {class: "select form-control"} %>
+
+            <div class="text-right btn-courses">
+              <%= f.submit t("views.course.edit.save_edit"), class: "btn btn-primary" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
