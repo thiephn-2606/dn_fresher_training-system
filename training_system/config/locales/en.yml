@@ -36,7 +36,9 @@ en:
         name: "Name Course"
         status: "Status"
         start_date: "Start Date"
+        start_course: "Start Course"
         h_details: "Details"
+        option: "Options"
       show:
         header: "Details of Course"
         content: "Content"
