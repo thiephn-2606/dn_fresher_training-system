@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   
   namespace :trainer do
     resources :courses do
-      post "start_course"
+      member do
+        post "start_course"
+      end
     end
   end
 end

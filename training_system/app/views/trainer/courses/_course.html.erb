@@ -18,7 +18,9 @@
   <td class="name">
     <%= link_to t("views.course.index.detail_course"), trainer_course_path(course.id),  class: "btn btn-info" %>
     <% if course.init? %>
-      <%= link_to t("views.course.index.start_course"), trainer_course_start_course_path(course.id), class: "btn btn-danger", method: :post, remote: true %>
+      <%= link_to t("views.course.index.start_course"),"#",
+        class: "btn btn-danger js-start-course", data:{id: course.id },
+        id: "start_course#{course.id}", method: :post, remote: true %>
     <% end %>
   </td>
 </tr>

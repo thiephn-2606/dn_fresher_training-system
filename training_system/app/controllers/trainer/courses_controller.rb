@@ -40,7 +40,7 @@ class Trainer::CoursesController < Trainer::BaseController
   end
 
   def start_course
-    @course = Course.find_by id: params[:course_id]
+    @course = Course.find_by id: params[:id]
 
     if @course.update status: "in_progress"
       @course.course_subjects.first.update status: "in_progress"
