@@ -10,7 +10,9 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "bootstrap"
-import "packs/courses"
+import "./courses"
+import "./argon"
+
 
 Rails.start()
 Turbolinks.start()
