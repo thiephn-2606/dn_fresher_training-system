@@ -17,7 +17,7 @@
 }
 
 .colspan_table{
-  width: 10%;
+  width: 12%;
   text-align: center;
 }
 
@@ -27,4 +27,27 @@
 
 .alert {
   z-index: 1;
+}
+
+.logo{
+  width: 90px;
+}
+
+.titel_show_course{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 10px 0px 10px;
+}
+
+.item_title{
+  font-size: 20px;
+    font-weight: bold;
+}
+
+.layout_search{
+  display: flex;
+}
+
+.btn_logout{
+  color: aliceblue;
 }

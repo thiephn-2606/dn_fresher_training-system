@@ -7,12 +7,18 @@ class SessionsController < ApplicationController
     if @user.authenticate(params[:session][:password])
       flash[:success] = t "session.success"
       log_in @user
-      return redirect_to trainer_courses_path if current_user.trainer?
-
-      redirect_to @user
+      switch_layout
     else
       flash.now[:danger] = t "session.account_invalid"
       render :new
+    end
+  end
+
+  def switch_layout
+    if current_user.trainer?
+      redirect_to trainer_courses_path
+    else
+      redirect_to trainee_courses_path
     end
   end
 

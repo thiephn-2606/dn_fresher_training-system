@@ -1,0 +1,16 @@
+
+<div class="navbar-search navbar-search-light form-inline mr-sm-3 __web-inspector-hide-shortcut__" id="navbar-search-main">
+  <%= form_for( trainee_courses_path, method: :get) do %>
+    <div class="form-group mb-0 boder_search">
+      <div class="input-group input-group-alternative input-group-merge">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fas fa-search"></i></span>
+        </div>
+          <%= text_field_tag :search, params[:search], placeholder: t("views.course.index.search"), class: "form-control input_search"%>
+      </div>
+    </div>
+    <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
+    </button>
+  <% end %>
+</div>
+

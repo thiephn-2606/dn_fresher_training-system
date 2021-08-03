@@ -16,6 +16,10 @@ class ApplicationController < ActionController::Base
     redirect_to(log_in_path) unless current_user.trainer?
   end
 
+  def is_trainee
+    redirect_to(log_in_path) unless current_user.trainee?
+  end
+
   def logged_in_user
     return if logged_in?
 

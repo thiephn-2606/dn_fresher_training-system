@@ -11,4 +11,8 @@ Rails.application.routes.draw do
     end
     resources :user_courses, only: [:create, :destroy]
   end
+
+  namespace :trainee do
+    resources :courses
+  end
 end
