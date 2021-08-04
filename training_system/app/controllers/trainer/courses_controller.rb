@@ -39,6 +39,21 @@ class Trainer::CoursesController < Trainer::BaseController
     end
   end
 
+  def start_course
+    begin
+      ActiveRecord::Base.transaction do
+        @course = Course.find_by! id: params[:id]
+        @course.in_progress!
+        @course.course_subjects.first.in_progress!
+        flash[:success] = t "courses.update.success"
+        redirect_to trainer_courses_path
+      end
+    rescue 
+      flash[:danger] = t "courses.update.failed"
+      redirect_to trainer_courses_path
+    end
+  end
+
   private
 
   def course_params

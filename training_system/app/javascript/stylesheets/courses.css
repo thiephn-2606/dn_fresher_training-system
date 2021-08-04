@@ -15,3 +15,12 @@
 .assign-trainee {
   width: 48%
 }
+
+.colspan_table{
+  width: 10%;
+  text-align: center;
+}
+
+.option_button{
+  display: flex;
+}
