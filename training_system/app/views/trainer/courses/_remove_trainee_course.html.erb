@@ -1,0 +1,13 @@
+<%= form_with url: trainer_user_course_path, method: :delete, class: "form-group" do |f| %>
+  
+  <%= f.hidden_field :course_id, value: @course.id %>
+      
+  <%= f.label :traine_remove %>
+  <%= f.collection_select :user_ids, @trainees, :id, :name,
+    {include_blank: false, include_hidden: false},
+    { multiple: true, class: "select form-control", id: "remove-trainee-select"} %>
+
+  <div class="col-lg-6 col-5 text-right btn-courses p-3">
+    <%= f.submit t("courses.form.submit"), class: "btn btn-success" %>
+  </div>
+<% end %>

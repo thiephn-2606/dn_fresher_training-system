@@ -7,6 +7,7 @@
   <file name='app/controllers/trainee/base_controller.rb'/>
   <file name='app/controllers/trainer/base_controller.rb'/>
   <file name='app/controllers/trainer/courses_controller.rb'/>
+  <file name='app/controllers/trainer/user_courses_controller.rb'/>
   <file name='app/helpers/application_helper.rb'/>
   <file name='app/helpers/courses_helper.rb'/>
   <file name='app/helpers/sessions_helper.rb'/>

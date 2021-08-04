@@ -8,4 +8,14 @@ $(document).ready(function() {
     placeholder: "select Role",
     closeOnSelect: true
   });
+  $('#assign-trainee-select').select2({
+    allowClear:true,
+    placeholder: "select Role",
+    closeOnSelect: true,
+  });
+  $('#remove-trainee-select').select2({
+    allowClear:true,
+    placeholder: "select Role",
+    closeOnSelect: true
+  });
 });

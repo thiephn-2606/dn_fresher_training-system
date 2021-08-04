@@ -24,3 +24,7 @@
 .option_button{
   display: flex;
 }
+
+.alert {
+  z-index: 1;
+}

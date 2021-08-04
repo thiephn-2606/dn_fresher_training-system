@@ -15,6 +15,9 @@ class User < ApplicationRecord
   before_save :downcase_email
   enum roles: {trainee: 0, trainer: 1, admin: 2}
 
+  scope :user_not_course, ->(id){where.not(id: id)}
+  scope :user_in_course, ->(id){where(id: id)}
+
   class << self
     def digest string
       cost = if ActiveModel::SecurePassword.min_cost

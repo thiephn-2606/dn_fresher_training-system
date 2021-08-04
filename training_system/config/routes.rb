@@ -9,5 +9,6 @@ Rails.application.routes.draw do
         post "start_course"
       end
     end
+    resources :user_courses, only: [:create, :destroy]
   end
 end
