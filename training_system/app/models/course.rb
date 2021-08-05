@@ -6,6 +6,7 @@ class Course < ApplicationRecord
   enum status: {init: 0, in_progress: 1, finished: 2}
 
   scope :created_desc, ->{order(created_at: :desc)}
+  scope :search, ->(search){where("name LIKE ?", "%#{search}%")}
 
   # validates :course_subjects, presence: true
   validates :user_courses, presence: true

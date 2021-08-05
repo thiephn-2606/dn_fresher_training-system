@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col">
+    <div class="card bg-default shadow">
+      <div class="card-header bg-transparent border-0 layout_search">
+        <div class = col-10>
+          <h3 class="text-white mb-0"><%= t("views.course.index.header") %></h3>
+        </div>
+        <div class = col-2>
+          <%= render partial: 'search'%>
+        </div>
+      </div>
+      <div class="table-responsive">
+        <table class="table align-items-center table-dark table-flush">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col" class="sort" data-sort="name"><%= t("views.course.index.name") %></th>
+              <th scope="col" class="sort" data-sort="budget"><%= t("views.course.index.start_date") %></th>
+              <th scope="col" class="sort" data-sort="status"><%= t("views.course.index.status") %></th>
+              <th scope="col" class="colspan_table" data-sort="status"><%= t("views.course.index.h_details") %></th>
+            </tr>
+          </thead>
+          <tbody class="list">
+            <%= render @courses %>
+          </tbody>
+        </table>
+        <div class="digg_pagination">
+          <%= paginate @courses %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

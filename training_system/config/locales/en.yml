@@ -17,6 +17,7 @@ en:
     header:
       framgia: "TRAINING SYSTEM"
       btn: "new"
+      logout : "Logout"
     footer:
       version: "Version: 1.0"
       strong: "Copyright by Framgia, 2021."
@@ -39,6 +40,7 @@ en:
         start_course: "Start Course"
         h_details: "Details"
         option: "Options"
+        search: "Search"
       show:
         header: "Details of Course"
         content: "Content"
@@ -56,6 +58,7 @@ en:
         header_list_subject: "List Subject"
         duration: "Duration"
         email: "Email"
+        back: "Back"
       edit:
         save_edit: "Save changes"
         header_edit: "Edit Course"
