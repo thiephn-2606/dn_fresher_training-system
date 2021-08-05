@@ -81,6 +81,10 @@ en:
       remove_trainee:
         suc: "Remove Success"
         fail: "Remove Fail"
+    course_subjects_controller:
+      success: "Update Status Success"
+      fail: "Update Status Fail"
+      error_show: "Course does not exist"
   date:
     formats:
       default: "%d-%m-%Y"

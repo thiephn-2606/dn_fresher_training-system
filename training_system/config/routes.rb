@@ -14,5 +14,6 @@ Rails.application.routes.draw do
 
   namespace :trainee do
     resources :courses
+    resources :course_subjects, only: :update
   end
 end
