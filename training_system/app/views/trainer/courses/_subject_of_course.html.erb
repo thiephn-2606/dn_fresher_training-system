@@ -12,4 +12,22 @@
   <td class="budget">
     <%= status_subject(subject, @course) %>
   </td>
+  <td class="budget">
+    <% if status_subject(subject, @course) == "finished" %>
+      <%= start_date_end_date_finished(subject, @course) %>
+    <% else %>
+      <%= start_date_end_date(subject, @course) %>
+    <% end %>
+  </td>
+  <% if @course.in_progress? %>
+    <% if status_subject(subject, @course) == "init" %>
+      <td class="budget">
+        <%= link_to t("views.course.index.start_subject"), trainer_course_start_subject_path(subject.id, course_id: @course.id, subject_id: subject.id), method: :post, class: "btn btn-info" %>
+      </td>
+    <% elsif status_subject(subject, @course) == "in_progress"%>
+      <td class="budget">
+        <%= link_to t("views.course.index.finish_subject"), trainer_course_subject_path(subject.id, course_id: @course.id, subject_id: subject.id), method: :put, class: "btn btn-info" %>
+      </td>
+    <% end %>
+  <% end %>
 </tr>

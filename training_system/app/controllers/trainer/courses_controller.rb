@@ -1,5 +1,6 @@
 class Trainer::CoursesController < Trainer::BaseController
   before_action :load_course, only: [:show, :edit, :update, :start_course]
+  before_action :load_course_start, :load_for_start_subject, only: :start_subject
   before_action :trainee_not_course, only: :edit
 
   def index
@@ -53,6 +54,23 @@ class Trainer::CoursesController < Trainer::BaseController
     end
   end
 
+  def start_subject
+    ActiveRecord::Base.transaction do
+      @course_users.each do |course_user|
+        @course_start_subject.user_course_subjects
+                              .build(user_course_id: course_user.id)
+      end
+      @course_start_subject.save!
+      @course_start_subject.in_progress!
+      @course_start_subject.update!(start_date: Time.zone.now.to_date)
+      flash[:success] = t "courses.update.success"
+    rescue ActiveRecord::RecordInvalid
+      flash[:danger] = t "courses.update.failed"
+    ensure
+      redirect_to trainer_course_path @course.id
+    end
+  end
+
   private
 
   def course_params
@@ -90,5 +108,23 @@ class Trainer::CoursesController < Trainer::BaseController
     @trainees_not_course = User.trainee.user_not_course(trainees)
                                .page(params[:page])
                                .per(Settings.courses.per_page)
+  end
+
+  def load_course_start
+    @course = Course.find_by id: params[:course_id]
+    return if @course
+
+    flash[:danger] = t("controllers.course_controller.error_show")
+    redirect_to trainer_courses_path
+  end
+
+  def load_for_start_subject
+    @course_users = @course.user_courses
+    @course_start_subject = @course.course_subjects
+                                   .find_by subject_id: params[:subject_id]
+    if @course_start_subject.blank?
+      flash[:danger] = t("controllers.course_controller.error_show")
+      redirect_to trainer_courses_path
+    end
   end
 end

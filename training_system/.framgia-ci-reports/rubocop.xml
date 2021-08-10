@@ -8,6 +8,7 @@
   <file name='app/controllers/trainee/course_subjects_controller.rb'/>
   <file name='app/controllers/trainee/courses_controller.rb'/>
   <file name='app/controllers/trainer/base_controller.rb'/>
+  <file name='app/controllers/trainer/course_subjects_controller.rb'/>
   <file name='app/controllers/trainer/courses_controller.rb'/>
   <file name='app/controllers/trainer/subjects_controller.rb'/>
   <file name='app/controllers/trainer/trainees_controller.rb'/>
