@@ -26,7 +26,7 @@
       </td>
     <% elsif status_subject(subject, @course) == "in_progress"%>
       <td class="budget">
-        <%= link_to t("views.course.index.finish_subject"), trainer_course_subject_path(subject.id, course_id: @course.id, subject_id: subject.id), method: :put, class: "btn btn-info" %>
+        <%= link_to t("views.course.index.finish_subject"), trainer_course_course_subject_path(subject.id, course_id: @course.id, subject_id: subject.id), method: :put, class: "btn btn-info" %>
       </td>
     <% end %>
   <% end %>

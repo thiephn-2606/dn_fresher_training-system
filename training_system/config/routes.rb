@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   namespace :trainer do
     resources :courses do
+      resources :trainees, only: :show
+      resources :course_subjects, only: :update
       post "start_subject"
       member do
         post "start_course"
@@ -12,7 +14,6 @@ Rails.application.routes.draw do
     end
     resources :user_courses, only: [:create, :destroy]
     resources :subjects
-    resources :course_subjects, only: :update
   end
 
   namespace :trainee do
