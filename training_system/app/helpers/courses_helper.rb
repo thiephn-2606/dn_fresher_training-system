@@ -28,8 +28,12 @@ module CoursesHelper
                           course_subject_id: course_subject.id,
                           user_course_id: user_course.id
                         )
+<<<<<<< HEAD
     return content_tag(:span, t("helper.course.awaiting")) if user_course_sb.start_date.blank?
     
+=======
+    return false if user_course_sb.blank?
+>>>>>>> trainee_start_sb
     duration = course_subject.subject.try(:duration)
     time_start = user_course_sb.start_date
     time_end = user_course_sb.end_date
