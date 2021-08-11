@@ -131,6 +131,10 @@ en:
       success: "Update Status Success"
       fail: "Update Status Fail"
       error_show: "Course does not exist"
+    user_tasks_controller:
+      success: "Update Status Success"
+      fail: "Update Status Fail"
+      error_show: "Course does not exist"
   date:
     formats:
       default: "%d-%m-%Y"

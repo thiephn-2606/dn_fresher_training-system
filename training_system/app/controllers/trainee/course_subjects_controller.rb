@@ -2,6 +2,7 @@ class Trainee::CourseSubjectsController < Trainee::BaseController
   before_action :load_subject,
                 :load_user_course,
                 :load_user_course_subject,
+                :load_task_subject,
                 only: [:show]
 
   def show; end
@@ -34,5 +35,9 @@ class Trainee::CourseSubjectsController < Trainee::BaseController
 
     flash[:danger] = t("controllers.course_subjects_controller.error_show")
     redirect_to trainee_courses_path
+  end
+
+  def load_task_subject
+    @task_subjects = @user_course_subject.user_tasks
   end
 end
