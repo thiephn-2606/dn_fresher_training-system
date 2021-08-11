@@ -1,0 +1,59 @@
+<div class="container-fluid mt--12">
+  <div class="row mt--5">
+    <div class="col-md-12 ml-auto mr-auto">
+      <div class="card bg-default shadow">
+        <div class="titel_show_course">
+          <p class="item_title"><%= t("views.course_subject.show.header_list_subject") %></p>
+          <p> <p>
+          <%= link_to t("views.course.show.back"), trainee_course_path(@course_subject.course_id), class: "btn btn-info" %>
+        </div>
+        <div class="table-responsive">
+          <table class="table align-items-center table-dark table-flush">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col" class="sort" data-sort="name"><%= t("views.course_subject.show.name_subject") %></th>
+                <th scope="col" class="sort" data-sort="budget"><%= t("views.course_subject.show.description") %></th>
+                <th scope="col" class="sort" data-sort="budget"><%= t("views.course_subject.show.start_date") %></th>
+                <th scope="col" class="sort" data-sort="budget"><%= t("views.course_subject.show.end_date") %></th>
+                <th scope="col" class="sort" data-sort="budget"><%= t("views.course_subject.show.duration") %></th>
+                <th scope="col" class="sort" data-sort="budget"><%= t("views.course_subject.show.status") %></th>
+                <th scope="col" class="sort" data-sort="budget"><%= t("views.course_subject.show.finished") %></th>
+              </tr>
+            </thead>
+            <tbody class="list">
+              <tr>
+                <th scope="row">
+                  <div class="media align-items-center">
+                    <div class="media-body">
+                      <span class="name mb-0 text-sm"><%= @course_subject.name %></span>
+                    </div>
+                  </div>
+                </th>
+                <td class="budget">
+                  <%= @course_subject.description %>
+                </td> 
+                <td class="budget">
+                  <%= l(user_course_subject(@course_subject).start_date) %>
+                </td>
+                  <td class="budget">
+                  <%= l(user_course_subject(@course_subject).end_date) %>
+                </td>
+                <td class="budget">
+                  <%= @course_subject.duration %> <%= t("views.course_subject.show.date") %> 
+                </td>
+                <td class="budget">
+                  <%= @user_course_subject.status %>
+                </td>
+                <td class="budget">
+                  <% unless check_status_user_task(@user_course_subject) %>
+                    <%= link_to t("views.course_subject.show.finished"), trainee_user_course_subject_path(@user_course_subject.id), method: :put, class: "btn btn-success" %>
+                  <% end %>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          </div> 
+        </div>
+      </div>
+    </div>
+  </div>
