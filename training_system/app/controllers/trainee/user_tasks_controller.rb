@@ -25,5 +25,4 @@ class Trainee::UserTasksController < Trainee::BaseController
   def load_course_subject
     @course_subject = @user_task.user_course_subject.try(:course_subject)
   end
-  
 end
