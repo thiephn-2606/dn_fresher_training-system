@@ -1,5 +1,5 @@
 class Trainer::CoursesController < Trainer::BaseController
-  before_action :load_course, only: [:show, :edit, :update]
+  before_action :load_course, only: [:show, :edit, :update, :start_course]
   before_action :trainee_not_course, only: :edit
 
   def index
@@ -44,14 +44,10 @@ class Trainer::CoursesController < Trainer::BaseController
 
   def start_course
     begin
-      ActiveRecord::Base.transaction do
-        @course = Course.find_by! id: params[:id]
-        @course.in_progress!
-        @course.course_subjects.first.in_progress!
-        flash[:success] = t "courses.update.success"
-        redirect_to trainer_courses_path
-      end
-    rescue
+      @course.in_progress!
+      flash[:success] = t "courses.update.success"
+      redirect_to trainer_courses_path
+    rescue ActiveRecord::RecordInvalid
       flash[:danger] = t "courses.update.failed"
       redirect_to trainer_courses_path
     end
