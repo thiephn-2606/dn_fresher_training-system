@@ -45,7 +45,11 @@
                   <%= @user_course_subject.status %>
                 </td>
                 <td class="budget">
-                  <% unless check_status_user_task(@user_course_subject) %>
+                  <% if check_status_user_task(@user_course_subject) && @user_course_subject.in_progress? %>
+                    <span> <%= t("views.course_subject.show.wait")%> </span>
+                  <% elsif check_status_user_task(@user_course_subject) %>
+                    <%= link_to t("views.course_subject.show.start"),start_subject_trainee_user_course_subject_path(@user_course_subject.id), method: :put,  class: "btn btn-danger" %>
+                  <% else %>
                     <%= link_to t("views.course_subject.show.finished"), trainee_user_course_subject_path(@user_course_subject.id), method: :put, class: "btn btn-success" %>
                   <% end %>
                 </td>
@@ -53,6 +57,31 @@
             </tbody>
           </table>
           </div> 
+        </div>
+      </div>
+    </div>
+    <div class="card card-upgrade">
+      <div class="titel_show_course">
+        <p class="item_title"><%= t("views.course_subject.show.header") %></p>
+        <p> <p>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive table-upgrade">
+          <table class="table">
+            <thead>
+              <tr>
+                <th class="sort"><%= t("views.course_subject.show.name") %></th>
+                <th class="sort"><%= t("views.course_subject.show.descripton") %></th>
+                <th class="sort"><%= t("views.course_subject.show.duration") %></th>
+                <th class="sort"><%= t("views.course_subject.show.status") %></th>
+                <th class="sort"><%= t("views.course_subject.show.option") %></th>
+              </tr>
+            </thead>
+            <tbody>
+              <%= render partial: "subject_of_course", collection: @task_subjects, as: :task_subject %>
+            </tbody>
+          </table>
+          <hr class="my-4">
         </div>
       </div>
     </div>
