@@ -5,12 +5,14 @@ Rails.application.routes.draw do
 
   namespace :trainer do
     resources :courses do
+      post "start_subject"
       member do
         post "start_course"
       end
     end
     resources :user_courses, only: [:create, :destroy]
     resources :subjects
+    resources :course_subjects, only: :update
   end
 
   namespace :trainee do

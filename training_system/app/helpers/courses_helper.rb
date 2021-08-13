@@ -66,4 +66,27 @@ module CoursesHelper
       content_tag(:span, t("helper.course.awaiting"))
     end
   end
+
+  def start_date_end_date subject, course
+    course_subject = subject.course_subjects.find_by(course_id: course.id).start_date
+    if course_subject.present?
+      content_tag(:span,
+                  "#{l(course_subject)} -
+                   #{l(course_subject + subject.duration)}(expected)")
+    else
+      content_tag(:span, t("helper.course.awaiting"))
+    end
+  end
+
+  def start_date_end_date_finished subject, course
+    course_subject = subject.course_subjects
+                            .find_by(course_id: course.id)
+    if course_subject.present?
+      content_tag(:span,
+                  "#{l(course_subject.start_date)} -
+                   #{l(course_subject.end_date)}")
+    else
+      content_tag(:span, t("helper.course.awaiting"))
+    end
+  end
 end

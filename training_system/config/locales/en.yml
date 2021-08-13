@@ -79,6 +79,7 @@ en:
         duration: "Duration"
         email: "Email"
         back: "Back"
+        start_date_end_date: "Start Date - End Date"
       edit:
         save_edit: "Save changes"
         header_edit: "Edit Course"
