@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_03_095922) do
+ActiveRecord::Schema.define(version: 2021_08_12_105407) do
 
   create_table "course_subjects", charset: "utf8mb4", force: :cascade do |t|
     t.date "deadline"
@@ -57,6 +57,8 @@ ActiveRecord::Schema.define(version: 2021_08_03_095922) do
     t.bigint "course_subject_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.date "start_date"
+    t.date "end_date"
     t.index ["course_subject_id"], name: "index_user_course_subjects_on_course_subject_id"
     t.index ["user_course_id"], name: "index_user_course_subjects_on_user_course_id"
   end
