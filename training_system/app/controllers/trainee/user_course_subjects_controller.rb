@@ -39,7 +39,7 @@ class Trainee::UserCourseSubjectsController < Trainee::BaseController
     @user_course_subject = UserCourseSubject.find_by id: params[:id]
     return if @user_course_subject
 
-    flash[:danger] = t("controllers.course_controller.error_show")
+    flash[:danger] = t("controllers.user_course_subject_controller.error_show")
     redirect_to trainee_courses_path
   end
 
@@ -48,7 +48,7 @@ class Trainee::UserCourseSubjectsController < Trainee::BaseController
       @user_course_subject.user_tasks.pluck(:status).include?("in_progress")
     return unless status_subject
 
-    flash[:danger] = t("controllers.course_controller.error_show")
+    flash[:danger] = t("controllers.user_course_subject_controller.error_course")
     redirect_to trainee_course_subject_path @user_course_subject.course_subject.id
   end
 end

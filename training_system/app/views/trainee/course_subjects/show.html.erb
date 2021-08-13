@@ -47,8 +47,8 @@
                 <td class="budget">
                   <% if  @user_course_subject.init? %>
                     <%= link_to t("views.course_subject.show.start"),start_subject_trainee_user_course_subject_path(@user_course_subject.id), method: :put,  class: "btn btn-danger" %>
-                  <% elsif check_status_user_task(@user_course_subject) && @user_course_subject.in_progress? %>
-                    <span> <%= t("views.course_subject.show.wait")%> </span>
+                  <% elsif check_status_user_task(@user_course_subject) && @user_course_subject.in_progress? || @user_course_subject.finished? %>
+                    <span> <%= t("views.course_subject.show.btn_waiting")%> </span>
                   <% else %>
                     <%= link_to t("views.course_subject.show.finished"), trainee_user_course_subject_path(@user_course_subject.id), method: :put, class: "btn btn-success" %>
                   <% end %>

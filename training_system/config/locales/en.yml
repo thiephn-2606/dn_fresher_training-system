@@ -110,6 +110,7 @@ en:
         back: "Back"
         date: Date
         wait: "Waiting"
+        btn_waiting: "--------"
   controllers:
     course_controller:
       let_login: "You must login"
