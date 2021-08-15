@@ -1,4 +1,8 @@
-rubocop:
+rspec:
   comment: true
   exit_code: 0
+  ignore: false
+rubocop:
+  comment: true
+  exit_code: 256
   ignore: false

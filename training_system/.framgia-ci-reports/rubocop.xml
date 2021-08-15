@@ -2,19 +2,65 @@
 <checkstyle>
   <file name='app/channels/application_cable/channel.rb'/>
   <file name='app/channels/application_cable/connection.rb'/>
-  <file name='app/controllers/application_controller.rb'/>
+  <file name='app/controllers/application_controller.rb'>
+    <error line='19' column='6' severity='info' message='Naming/PredicateName: Rename `is_trainee` to `is_trainee?`.' source='com.puppycrawl.tools.checkstyle.Naming/PredicateName'/>
+  </file>
   <file name='app/controllers/sessions_controller.rb'/>
   <file name='app/controllers/trainee/base_controller.rb'/>
   <file name='app/controllers/trainee/course_subjects_controller.rb'/>
   <file name='app/controllers/trainee/courses_controller.rb'/>
+  <file name='app/controllers/trainee/user_course_subjects_controller.rb'>
+    <error line='5' column='4' severity='info' message='Style/RedundantBegin: Redundant `begin` block detected.' source='com.puppycrawl.tools.checkstyle.Style/RedundantBegin'/>
+  </file>
+  <file name='app/controllers/trainee/user_tasks_controller.rb'>
+    <error line='2' column='55' severity='error' message='Lint/Syntax: unexpected token tIDENTIFIER
+(Using Ruby 2.7 parser; configure using `TargetRubyVersion` parameter, under `AllCops`)' source='com.puppycrawl.tools.checkstyle.Lint/Syntax'/>
+  </file>
   <file name='app/controllers/trainer/base_controller.rb'/>
-  <file name='app/controllers/trainer/course_subjects_controller.rb'/>
-  <file name='app/controllers/trainer/courses_controller.rb'/>
-  <file name='app/controllers/trainer/subjects_controller.rb'/>
-  <file name='app/controllers/trainer/trainees_controller.rb'/>
-  <file name='app/controllers/trainer/user_courses_controller.rb'/>
+  <file name='app/controllers/trainer/course_subjects_controller.rb'>
+    <error line='42' column='4' severity='info' message='Style/GuardClause: Use a guard clause (`unless status_check(@course_subject, &quot;in_progress&quot;) || status_check(@course_subject, &quot;init&quot;); return; end`) instead of wrapping the code inside a conditional expression.' source='com.puppycrawl.tools.checkstyle.Style/GuardClause'/>
+    <error line='42' column='80' severity='info' message='Metrics/LineLength: Line is too long. [92/80]' source='com.puppycrawl.tools.checkstyle.Metrics/LineLength'/>
+  </file>
+  <file name='app/controllers/trainer/courses_controller.rb'>
+    <error line='3' column='80' severity='info' message='Metrics/LineLength: Line is too long. [81/80]' source='com.puppycrawl.tools.checkstyle.Metrics/LineLength'/>
+    <error line='47' column='4' severity='info' message='Style/RedundantBegin: Redundant `begin` block detected.' source='com.puppycrawl.tools.checkstyle.Style/RedundantBegin'/>
+    <error line='61' column='30' severity='info' message='Layout/MultilineMethodCallIndentation: Align `.build` with `.user_course_subjects` on line 60.' source='com.puppycrawl.tools.checkstyle.Layout/MultilineMethodCallIndentation'/>
+    <error line='125' column='4' severity='info' message='Style/GuardClause: Use a guard clause (`return unless @course_start_subject.blank?`) instead of wrapping the code inside a conditional expression.' source='com.puppycrawl.tools.checkstyle.Style/GuardClause'/>
+  </file>
+  <file name='app/controllers/trainer/subjects_controller.rb'>
+    <error line='38' column='4' severity='info' message='Style/GuardClause: Use a guard clause (`return unless check_duration &gt; subject_params[:duration].to_i`) instead of wrapping the code inside a conditional expression.' source='com.puppycrawl.tools.checkstyle.Style/GuardClause'/>
+  </file>
+  <file name='app/controllers/trainer/trainees_controller.rb'>
+    <error line='2' column='80' severity='info' message='Metrics/LineLength: Line is too long. [84/80]' source='com.puppycrawl.tools.checkstyle.Metrics/LineLength'/>
+    <error line='23' column='80' severity='info' message='Metrics/LineLength: Line is too long. [84/80]' source='com.puppycrawl.tools.checkstyle.Metrics/LineLength'/>
+  </file>
+  <file name='app/controllers/trainer/user_courses_controller.rb'>
+    <error line='54' column='2' severity='info' message='Metrics/AbcSize: Assignment Branch Condition size for remove_trainee is too high. [22.91/20]' source='com.puppycrawl.tools.checkstyle.Metrics/AbcSize'/>
+  </file>
   <file name='app/helpers/application_helper.rb'/>
-  <file name='app/helpers/courses_helper.rb'/>
+  <file name='app/helpers/courses_helper.rb'>
+    <error line='18' column='2' severity='info' message='Metrics/AbcSize: Assignment Branch Condition size for check_status_user_course_sb is too high. [27.17/20]' source='com.puppycrawl.tools.checkstyle.Metrics/AbcSize'/>
+    <error line='18' column='2' severity='info' message='Metrics/PerceivedComplexity: Perceived complexity for check_status_user_course_sb is too high. [8/7]' source='com.puppycrawl.tools.checkstyle.Metrics/PerceivedComplexity'/>
+    <error line='27' column='36' severity='info' message='Layout/IndentFirstArgument: Indent the first argument one step more than the start of the previous line.' source='com.puppycrawl.tools.checkstyle.Layout/IndentFirstArgument'/>
+    <error line='28' column='66' severity='info' message='Layout/MultilineMethodCallBraceLayout: Closing method call brace must be on the line after the last argument when opening brace is on a separate line from the first argument.' source='com.puppycrawl.tools.checkstyle.Layout/MultilineMethodCallBraceLayout'/>
+    <error line='29' column='8' severity='info' message='Layout/EmptyLineAfterGuardClause: Add empty line after guard clause.' source='com.puppycrawl.tools.checkstyle.Layout/EmptyLineAfterGuardClause'/>
+    <error line='29' column='8' severity='info' message='Layout/IndentationConsistency: Inconsistent indentation detected.' source='com.puppycrawl.tools.checkstyle.Layout/IndentationConsistency'/>
+    <error line='37' column='15' severity='info' message='Style/TernaryParentheses: Omit parentheses for ternary conditions.' source='com.puppycrawl.tools.checkstyle.Style/TernaryParentheses'/>
+    <error line='37' column='80' severity='info' message='Metrics/LineLength: Line is too long. [87/80]' source='com.puppycrawl.tools.checkstyle.Metrics/LineLength'/>
+    <error line='39' column='15' severity='info' message='Style/TernaryParentheses: Omit parentheses for ternary conditions.' source='com.puppycrawl.tools.checkstyle.Style/TernaryParentheses'/>
+    <error line='39' column='80' severity='info' message='Metrics/LineLength: Line is too long. [84/80]' source='com.puppycrawl.tools.checkstyle.Metrics/LineLength'/>
+    <error line='53' column='4' severity='warning' message='Lint/UselessAssignment: Useless assignment to variable - `user_course_sb`. Did you mean `user_course`?' source='com.puppycrawl.tools.checkstyle.Lint/UselessAssignment'/>
+    <error line='55' column='26' severity='info' message='Layout/IndentFirstArgument: Indent the first argument one step more than the start of the previous line.' source='com.puppycrawl.tools.checkstyle.Layout/IndentFirstArgument'/>
+    <error line='69' column='37' severity='info' message='Style/MethodDefParentheses: Use def without parentheses.' source='com.puppycrawl.tools.checkstyle.Style/MethodDefParentheses'/>
+    <error line='71' column='21' severity='info' message='Layout/MultilineMethodCallIndentation: Align `.find_by` with `user_course_subjects` on line 70.' source='com.puppycrawl.tools.checkstyle.Layout/MultilineMethodCallIndentation'/>
+    <error line='73' column='6' severity='info' message='Style/TernaryParentheses: Omit parentheses for ternary conditions.' source='com.puppycrawl.tools.checkstyle.Style/TernaryParentheses'/>
+    <error line='73' column='7' severity='info' message='Layout/SpaceInsideParens: Space inside parentheses detected.' source='com.puppycrawl.tools.checkstyle.Layout/SpaceInsideParens'/>
+    <error line='73' column='80' severity='info' message='Metrics/LineLength: Line is too long. [137/80]' source='com.puppycrawl.tools.checkstyle.Metrics/LineLength'/>
+    <error line='73' column='97' severity='info' message='Layout/SpaceInsideParens: Space inside parentheses detected.' source='com.puppycrawl.tools.checkstyle.Layout/SpaceInsideParens'/>
+    <error line='80' column='80' severity='info' message='Metrics/LineLength: Line is too long. [85/80]' source='com.puppycrawl.tools.checkstyle.Metrics/LineLength'/>
+    <error line='102' column='28' severity='info' message='Style/MethodDefParentheses: Use def without parentheses.' source='com.puppycrawl.tools.checkstyle.Style/MethodDefParentheses'/>
+    <error line='106' column='0' severity='info' message='Layout/TrailingWhitespace: Trailing whitespace detected.' source='com.puppycrawl.tools.checkstyle.Layout/TrailingWhitespace'/>
+  </file>
   <file name='app/helpers/sessions_helper.rb'/>
   <file name='app/jobs/application_job.rb'/>
   <file name='app/mailers/application_mailer.rb'/>

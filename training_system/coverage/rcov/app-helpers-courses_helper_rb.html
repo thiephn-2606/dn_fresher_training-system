@@ -1,0 +1,386 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
+  <head>
+    <title>app/helpers/courses_helper.rb</title>
+    <link href="./assets/0.2.3/screen.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="./assets/0.2.3/print.css" media="print" rel="stylesheet" type="text/css" />
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <script type="text/javascript" src="./assets/0.2.3/rcov.js"></script>
+  </head>
+  <body>
+    <h1>Training system C0 Coverage Information - Simploco - RCov</h1>
+    <h2>app/helpers/courses_helper.rb</h2>
+
+    <div class="report_table_wrapper">
+      <table class='report' id='report_table'>
+        <thead>
+          <tr>
+            <th class="left_align">Name</th>
+            <th class="right_align">Total Lines</th>
+            <th class="right_align">Lines of Code</th>
+            <th class="left_align">Total Coverage</th>
+            <th class="left_align">Code Coverage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="left_align"><a href="app-helpers-courses_helper_rb.html">app/helpers/courses_helper.rb</a></td>
+            <td class='right_align'><tt>109</tt></td>
+            <td class='right_align'><tt>91</tt></td>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>16.51%</tt></div>
+      <div class="percent_graph">
+        <div class="covered" style="width:17px"></div>
+        <div class="uncovered" style="width:83px"></div>
+      </div></td>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>0.00%</tt></div>
+      <div class="percent_graph">
+        <div class="covered" style="width:0px"></div>
+        <div class="uncovered" style="width:100px"></div>
+      </div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Key</h3>
+
+    <div class="key"><pre><span class='marked'>Code reported as executed by Ruby looks like this...</span><span class='marked1'>and this: this line is also marked as covered.</span><span class='inferred'>Lines considered as run by rcov, but not reported by Ruby, look like this,</span><span class='inferred1'>and this: these lines were inferred by rcov (using simple heuristics).</span><span class='uncovered'>Finally, here's a line marked as not executed.</span></pre></div>
+
+    <h3>Coverage Details</h3>
+
+    <table class="details">
+      <tbody>
+        <tr class="uncovered">
+          <td><pre><a name="line2">2</a> module CoursesHelper</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line3">3</a>   def status_select</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line4">4</a>     Course.statuses.keys</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line5">5</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line6">6</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line7">7</a>   def subject_select</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line8">8</a>     Subject.select(:id, :name)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line9">9</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line10">10</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line11">11</a>   def user_select</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line12">12</a>     User.trainee.select(:id, :name)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line13">13</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line14">14</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line15">15</a>   def check_status_user_task user_course_subject</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line16">16</a>     user_course_subject.try(:user_tasks).pluck(:status).include?(&quot;in_progress&quot;)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line17">17</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line18">18</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line19">19</a>   def check_status_user_course_sb course_subject</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line20">20</a>     return if course_subject.blank?</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line21">21</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line22">22</a>     user_course =</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line23">23</a>       course_subject.user_course.find_by(user_id: current_user.id)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line24">24</a>     return false if user_course.blank?</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line25">25</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line26">26</a>     user_course_sb =</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line27">27</a>       course_subject.user_course_subjects.find_by(</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line28">28</a>                                     course_subject_id: course_subject.id,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line29">29</a>                                     user_course_id: user_course.id)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line30">30</a>         return false if user_course_sb.blank?</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line31">31</a>     duration = course_subject.subject.try(:duration)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line32">32</a>     time_start = user_course_sb.start_date</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line33">33</a>     time_end = user_course_sb.end_date</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line34">34</a>     time = Time.zone.now</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line35">35</a>     time_current = time.strftime(&quot;%d %B, %Y&quot;).to_date</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line36">36</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line37">37</a>     if user_course_sb.finished?</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line38">38</a>       status = (time_end - time_start &gt; duration) ? &quot;finished_beyond_time&quot; : &quot;finished&quot;</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line39">39</a>     else</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line40">40</a>       status = (time_current - time_start &gt; duration) ? &quot;unfinished&quot; : &quot;in_progress&quot;</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line41">41</a>     end</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line42">42</a>     content_tag(:span, t(&quot;helper.course.#{status}&quot;))</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line43">43</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line44">44</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line45">45</a>   def end_date_user_subject course_subject</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line46">46</a>     l(course_subject.start_date + course_subject.duration)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line47">47</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line48">48</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line49">49</a>   def user_course_subject course_subject</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line50">50</a>     user_course =</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line51">51</a>       course_subject.user_course.find_by(user_id: current_user.id)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line52">52</a>     return false if user_course.blank?</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line53">53</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line54">54</a>     user_course_sb =</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line55">55</a>       course_subject.try(:user_course_subjects).find_by(</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line56">56</a>                           course_subject_id: course_subject.id,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line57">57</a>                           user_course_id: user_course.id</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line58">58</a>                         )</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line59">59</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line60">60</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line61">61</a>   def status_subject subject, course</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line62">62</a>     course_subject = subject.course_subjects.find_by(course_id: course.id)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line63">63</a>     if course_subject.present?</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line64">64</a>       course_subject.status</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line65">65</a>     else</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line66">66</a>       content_tag(:span, t(&quot;helper.course.awaiting&quot;))</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line67">67</a>     end</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line68">68</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line69">69</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line70">70</a>   def status_subject_trainee_finished(user_course_subjects, course_subject)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line71">71</a>     note_subject = user_course_subjects</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line72">72</a>                      .find_by(course_subject_id: course_subject.id)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line73">73</a>     if note_subject.present?</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line74">74</a>       ( note_subject.end_date.to_date - note_subject.start_date.to_date &gt; course_subject.duration ) ? &quot;Finished beyond time&quot; : &quot;Finished&quot;</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line75">75</a>     else</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line76">76</a>       content_tag(:span, t(&quot;helper.course.awaiting&quot;))</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line77">77</a>     end</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line78">78</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line79">79</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line80">80</a>   def start_date_end_date subject, course</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line81">81</a>     course_subject = subject.course_subjects.find_by(course_id: course.id).start_date</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line82">82</a>     if course_subject.present?</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line83">83</a>       content_tag(:span,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line84">84</a>                   &quot;#{l(course_subject)} -</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line85">85</a>                    #{l(course_subject + subject.duration)}(expected)&quot;)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line86">86</a>     else</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line87">87</a>       content_tag(:span, t(&quot;helper.course.awaiting&quot;))</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line88">88</a>     end</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line89">89</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line90">90</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line91">91</a>   def start_date_end_date_finished subject, course</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line92">92</a>     course_subject = subject.course_subjects</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line93">93</a>                             .find_by(course_id: course.id)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line94">94</a>     if course_subject.present?</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line95">95</a>       content_tag(:span,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line96">96</a>                   &quot;#{l(course_subject.start_date)} -</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line97">97</a>                    #{l(course_subject.end_date)}&quot;)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line98">98</a>     else</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line99">99</a>       content_tag(:span, t(&quot;helper.course.awaiting&quot;))</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line100">100</a>     end</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line101">101</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line102">102</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line103">103</a>   def status_subject_trainee(user_course_subjects, course_subject)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line104">104</a>     status_subject = user_course_subjects</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line105">105</a>                      .find_by(course_subject_id: course_subject.id)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line106">106</a>     return status_subject.status if status_subject.present?</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line107">107</a>     </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line108">108</a>     content_tag(:span, t(&quot;helper.course.awaiting&quot;))</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line109">109</a>   end</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line110">110</a> end</pre></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Generated on 2021-08-16 08:14:15 +0700 with <a href="https://github.com/fguillen/simplecov-rcov">SimpleCov-RCov 0.2.3</a></p>
+
+  </body>
+</html>

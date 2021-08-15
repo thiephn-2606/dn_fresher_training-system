@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
+  <head>
+    <title>app/controllers/trainer/user_courses_controller.rb</title>
+    <link href="./assets/0.2.3/screen.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="./assets/0.2.3/print.css" media="print" rel="stylesheet" type="text/css" />
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <script type="text/javascript" src="./assets/0.2.3/rcov.js"></script>
+  </head>
+  <body>
+    <h1>Training system C0 Coverage Information - Simploco - RCov</h1>
+    <h2>app/controllers/trainer/user_courses_controller.rb</h2>
+
+    <div class="report_table_wrapper">
+      <table class='report' id='report_table'>
+        <thead>
+          <tr>
+            <th class="left_align">Name</th>
+            <th class="right_align">Total Lines</th>
+            <th class="right_align">Lines of Code</th>
+            <th class="left_align">Total Coverage</th>
+            <th class="left_align">Code Coverage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="left_align"><a href="app-controllers-trainer-user_courses_controller_rb.html">app/controllers/trainer/user_courses_controller.rb</a></td>
+            <td class='right_align'><tt>72</tt></td>
+            <td class='right_align'><tt>61</tt></td>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>15.28%</tt></div>
+      <div class="percent_graph">
+        <div class="covered" style="width:15px"></div>
+        <div class="uncovered" style="width:85px"></div>
+      </div></td>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>0.00%</tt></div>
+      <div class="percent_graph">
+        <div class="covered" style="width:0px"></div>
+        <div class="uncovered" style="width:100px"></div>
+      </div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Key</h3>
+
+    <div class="key"><pre><span class='marked'>Code reported as executed by Ruby looks like this...</span><span class='marked1'>and this: this line is also marked as covered.</span><span class='inferred'>Lines considered as run by rcov, but not reported by Ruby, look like this,</span><span class='inferred1'>and this: these lines were inferred by rcov (using simple heuristics).</span><span class='uncovered'>Finally, here's a line marked as not executed.</span></pre></div>
+
+    <h3>Coverage Details</h3>
+
+    <table class="details">
+      <tbody>
+        <tr class="uncovered">
+          <td><pre><a name="line2">2</a> class Trainer::UserCoursesController &lt; ApplicationController</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line3">3</a>   before_action :load_course, only: :create</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line4">4</a>   before_action :load_course_destroy, only: :destroy</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line5">5</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line6">6</a>   def new; end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line7">7</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line8">8</a>   def edit; end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line9">9</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line10">10</a>   def create</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line11">11</a>     if params[:user_ids].present?</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line12">12</a>       assign_trainee</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line13">13</a>     else</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line14">14</a>       flash[:danger] = t &quot;controllers.course_controller.assign_trainee.f&quot;</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line15">15</a>       redirect_to edit_trainer_course_path @course.id</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line16">16</a>     end</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line17">17</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line18">18</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line19">19</a>   def destroy</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line20">20</a>     remove_trainee</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line21">21</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line22">22</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line23">23</a>   private</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line24">24</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line25">25</a>   def load_course</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line26">26</a>     @course = Course.find_by id: params[:course_id]</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line27">27</a>     return if @course</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line28">28</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line29">29</a>     flash[:danger] = t &quot;controllers.course_controller.error_show&quot;</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line30">30</a>     redirect_to edit_trainer_course_path @course.id</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line31">31</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line32">32</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line33">33</a>   def load_course_destroy</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line34">34</a>     @course_destroy = Course.find_by id: params[:id]</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line35">35</a>     return if @course_destroy</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line36">36</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line37">37</a>     flash[:danger] = t &quot;controllers.course_controller.error_show&quot;</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line38">38</a>     redirect_to edit_trainer_course_path @course.id</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line39">39</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line40">40</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line41">41</a>   def assign_trainee</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line42">42</a>     @course.transaction do</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line43">43</a>       params[:user_ids].each do |user|</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line44">44</a>         @course.user_courses.build user_id: user</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line45">45</a>       end</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line46">46</a>       @course.save!</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line47">47</a>       flash[:success] = t &quot;controllers.course_controller.assign_trainee.suc&quot;</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line48">48</a>     rescue ActiveRecord::RecordInvalid</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line49">49</a>       flash[:danger] = t &quot;controllers.course_controller.assign_trainee.f&quot;</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line50">50</a>     ensure</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line51">51</a>       redirect_to edit_trainer_course_path @course.id</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line52">52</a>     end</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line53">53</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line54">54</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line55">55</a>   def remove_trainee</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line56">56</a>     trainees = User.user_in_course params[:user_ids]</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line57">57</a>     if @course_destroy.present? &amp;&amp; trainees.present?</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line58">58</a>       trainees_destroy = @course_destroy.user_courses</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line59">59</a>                                         .user_course_in_course(trainees.ids)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line60">60</a>       @course_destroy.transaction do</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line61">61</a>         trainees_destroy.destroy_all</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line62">62</a>         flash[:success] = t &quot;controllers.course_controller.remove_trainee.suc&quot;</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line63">63</a>       rescue ActiveRecord::RecordInvalid</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line64">64</a>         flash[:danger] = t &quot;controllers.course_controller.remove_trainee.fail&quot;</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line65">65</a>       ensure</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line66">66</a>         redirect_to edit_trainer_course_path @course_destroy.id</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line67">67</a>       end</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line68">68</a>     else</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line69">69</a>       flash[:danger] = t &quot;controllers.course_controller.remove_trainee.fail&quot;</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line70">70</a>       redirect_to edit_trainer_course_path @course_destroy.id</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line71">71</a>     end</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line72">72</a>   end</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line73">73</a> end</pre></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Generated on 2021-08-16 08:14:15 +0700 with <a href="https://github.com/fguillen/simplecov-rcov">SimpleCov-RCov 0.2.3</a></p>
+
+  </body>
+</html>
