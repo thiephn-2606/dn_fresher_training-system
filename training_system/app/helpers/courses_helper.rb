@@ -67,6 +67,16 @@ module CoursesHelper
     end
   end
 
+  def status_subject_trainee_finished(user_course_subjects, course_subject)
+    note_subject = user_course_subjects
+                     .find_by(course_subject_id: course_subject.id)
+    if note_subject.present?
+      ( note_subject.end_date.to_date - note_subject.start_date.to_date > course_subject.duration ) ? "Finished beyond time" : "Finished"
+    else
+      content_tag(:span, t("helper.course.awaiting"))
+    end
+  end
+
   def start_date_end_date subject, course
     course_subject = subject.course_subjects.find_by(course_id: course.id).start_date
     if course_subject.present?
@@ -88,5 +98,13 @@ module CoursesHelper
     else
       content_tag(:span, t("helper.course.awaiting"))
     end
+  end
+
+  def status_subject_trainee(user_course_subjects, course_subject)
+    status_subject = user_course_subjects
+                     .find_by(course_subject_id: course_subject.id)
+    return status_subject.status if status_subject.present?
+    
+    content_tag(:span, t("helper.course.awaiting"))
   end
 end

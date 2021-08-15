@@ -47,9 +47,9 @@ class Trainer::CoursesController < Trainer::BaseController
     begin
       @course.in_progress!
       flash[:success] = t "courses.update.success"
-      redirect_to trainer_courses_path
     rescue ActiveRecord::RecordInvalid
       flash[:danger] = t "courses.update.failed"
+    ensure
       redirect_to trainer_courses_path
     end
   end
