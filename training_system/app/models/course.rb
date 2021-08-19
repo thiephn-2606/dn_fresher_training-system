@@ -23,7 +23,7 @@ class Course < ApplicationRecord
     return unless start_date < Time.zone.now
 
     errors.add(
-      :start_date, I18n.t("courses.mess_start_date_error")
+      :base, I18n.t("courses.mess_start_date_error")
     )
   end
 
@@ -31,7 +31,7 @@ class Course < ApplicationRecord
     return unless start_date >= end_date
 
     errors.add(
-      :end_date, I18n.t("courses.mess_start_date_eq_end_date_error")
+      :base, I18n.t("courses.mess_start_date_eq_end_date_error")
     )
   end
 
