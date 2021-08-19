@@ -2,12 +2,14 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   subject { FactoryBot.create :user }
+  let!(:user1) {FactoryBot.create :user}
+  let!(:user2) {FactoryBot.create :user}
 
   describe "associations" do
     it { should have_many(:courses) }
     it { should have_many(:user_courses) }
   end
-
+  
   describe "validations" do
     it { should have_secure_password }
     it { should validate_presence_of(:name) }
@@ -20,16 +22,16 @@ RSpec.describe User, type: :model do
 
   describe "scope" do
     it "find user in course" do
-      expect(User.user_in_course([1, 2])).to eq([User.first, User.second])
+      expect(User.user_in_course([user1.id, user2.id])).to eq([user1, user2])
     end
 
     it "find user not in course" do
-      expect(User.user_not_course([1, 2])).to_not eq([User.first, User.second])
+      expect(User.user_not_course([user1.id, user2.id])).to_not eq([user1, user2])
     end
   end
 
   describe ".digest" do
-    let(:digest) {User.digest("thiephuynh")}
+    let(:digest) {User.digest("123123")}
 
     it "not nil" do
       expect(digest).not_to be nil

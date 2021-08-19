@@ -10,7 +10,7 @@ class Course < ApplicationRecord
   scope :search, ->(search){where("name LIKE ?", "%#{search}%")}
 
   # validates :course_subjects, presence: true
-  validates :user_courses, presence: true
+  # validates :user_courses, presence: true
   validates :name, :description, :start_date, :end_date, presence: true
   validate :check_start_date_greater_current_date, if: ->{start_date.present?},
                                                    on: :create

@@ -1,8 +1,8 @@
 rspec:
   comment: true
-  exit_code: 0
+  exit_code: 256
   ignore: false
 rubocop:
   comment: true
-  exit_code: 0
+  exit_code: 256
   ignore: false

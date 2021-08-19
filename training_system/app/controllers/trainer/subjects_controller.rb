@@ -1,5 +1,5 @@
 class Trainer::SubjectsController < Trainer::BaseController
-  before_action :subject_params, :duration_task_valid, only: :create
+  before_action :subject_params, only: :create
 
   def new
     @subject = Subject.new
@@ -10,9 +10,9 @@ class Trainer::SubjectsController < Trainer::BaseController
     @subject = Subject.new subject_params
     @subject.transaction do
       @subject.save!
-      flash[:success] = t "controllers.subject_controller.create.success"
+      flash[:success] = I18n.t("controllers.subject_controller.create.success")
     rescue ActiveRecord::RecordInvalid
-      flash[:danger] = t "controllers.subject_controller.create.faild"
+      flash[:danger] =  I18n.t("controllers.subject_controller.create.faild")
     ensure
       render :new
     end
@@ -29,7 +29,7 @@ class Trainer::SubjectsController < Trainer::BaseController
   def check_duration
     sum_duration_task = 0
     subject_params[:tasks_attributes].each do |task|
-      sum_duration_task += task[1][:duration].to_i
+      sum_duration_task += task[:duration].to_i
     end
     sum_duration_task
   end

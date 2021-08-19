@@ -46,7 +46,7 @@ RSpec.describe Trainer::CoursesController, type: :controller do
 
   describe "POST course#create" do
     context "success when valid attributes" do
-      let!(:params_course) {
+      let(:params_course) {
         { 
           name: "ruby",
           description: "test",
@@ -63,6 +63,18 @@ RSpec.describe Trainer::CoursesController, type: :controller do
           course: params_course
         }
       end
+  
+      it "roles user trainer" do
+        expect(user.roles).not_to eq("trainee")
+      end
+
+      it "creates a new course" do
+        expect{
+          post :create, params: {
+            course: params_course
+          }
+        }.to change(Course, :count).by 1
+      end
 
       it "assign @corse " do
         expect(assigns(:course)).not_to be_nil
@@ -74,7 +86,7 @@ RSpec.describe Trainer::CoursesController, type: :controller do
     end
 
     context "fail when invalid attributes" do
-      let!(:course_params) {FactoryBot.build(:course, start_date: "", end_date: "").as_json}
+      let(:course_params) {FactoryBot.build(:course, start_date: "", end_date: "").as_json}
       before do
         log_in user
         post :create, params: {
